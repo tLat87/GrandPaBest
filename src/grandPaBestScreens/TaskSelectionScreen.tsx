@@ -52,9 +52,7 @@ export const TaskSelectionScreen = () => {
           <TouchableOpacity style={styles.backButton} onPress={handleBack}>
             <Text style={styles.backButtonText}>←</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.hintButton}>
-            <Text style={styles.hintButtonText}>H</Text>
-          </TouchableOpacity>
+    
         </View>
       </ScrollView>
     </SafeAreaView>
