@@ -20,7 +20,10 @@ workflows:
               npm install
           - name: Install CocoaPods dependencies
             script: |
-              cd ios && pod install
+              cd ios
+              pod deintegrate || true
+              pod cache clean --all || true
+              pod install --repo-update
           - name: Set up provisioning profile settings on  Xcode project
             script: |
               cd ios
@@ -33,13 +36,19 @@ workflows:
               agvtool new-version -all $(($LATEST_BUILD_NUMBER + 1))
           - name: Set Info.plist values
             script: | 
-              PLIST=$CM_BUILD_DIR/ios/AwesomeProject/Info.plist
+              PLIST=$CM_BUILD_DIR/ios/GrandPaBest/Info.plist
               PLIST_BUDDY=/usr/libexec/PlistBuddy
-              $PLIST_BUDDY -c "Add :ITSAppUsesNonExemptEncryption bool false" $PLIST
+              $PLIST_BUDDY -c "Add :ITSAppUsesNonExemptEncryption bool false" $PLIST 2>/dev/null || $PLIST_BUDDY -c "Set :ITSAppUsesNonExemptEncryption bool false" $PLIST
+          - name: Clean build folder
+            script: |
+              cd $CM_BUILD_DIR/ios
+              rm -rf ~/Library/Developer/Xcode/DerivedData/*
+              xcodebuild clean -workspace "$XCODE_WORKSPACE" -scheme "$XCODE_SCHEME" -configuration Release
           - name: Build ipa for distribution
             script: | 
+              cd $CM_BUILD_DIR/ios
               xcode-project build-ipa \
-                --workspace "$CM_BUILD_DIR/ios/$XCODE_WORKSPACE" \
+                --workspace "$XCODE_WORKSPACE" \
                 --scheme "$XCODE_SCHEME"
         artifacts:
           - build/ios/ipa/*.ipa

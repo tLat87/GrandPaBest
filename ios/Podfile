@@ -31,5 +31,17 @@ target 'GrandPaBest' do
       :mac_catalyst_enabled => false,
       # :ccache_enabled => true
     )
+    
+    # Fix for C++ compilation issues
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+        config.build_settings['CLANG_CXX_LANGUAGE_STANDARD'] = 'c++17'
+        config.build_settings['CLANG_CXX_LIBRARY'] = 'libc++'
+        config.build_settings['GCC_C_LANGUAGE_STANDARD'] = 'c11'
+        # Additional fixes for compilation
+        config.build_settings['GCC_WARN_INHIBIT_ALL_WARNINGS'] = 'NO'
+        config.build_settings['CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER'] = 'NO'
+      end
+    end
   end
 end
