@@ -1,15 +1,15 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, Dimensions } from 'react-native';
-import { COLORS } from '../grandPaBestConstants/colors';
+import { COLORS } from '../constants/colors';
 
 const { width, height } = Dimensions.get('window');
 
-interface OnboardingScreen3Props {
-  onStart: () => void;
+interface OnboardingScreen2Props {
+  onNext: () => void;
   imagePath?: string | number;
 }
 
-export const OnboardingScreen3: React.FC<OnboardingScreen3Props> = ({ onStart, imagePath }) => {
+export const OnboardingScreen2: React.FC<OnboardingScreen2Props> = ({ onNext, imagePath }) => {
   const imageSource = imagePath 
     ? (typeof imagePath === 'number' ? imagePath : { uri: imagePath })
     : undefined;
@@ -17,17 +17,17 @@ export const OnboardingScreen3: React.FC<OnboardingScreen3Props> = ({ onStart, i
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}>
-          <Image source={require('../assets/img/onboard/3.png')} style={styles.image} resizeMode="contain" />
-  
+          <Image source={require('../grandPaBestAssets/img/onboard/2.png')} style={styles.image} resizeMode="contain" />
+ 
       </View>
       
       <View style={styles.panel}>
-        <Text style={styles.title}>Each artifact stores your statistics:</Text>
+        <Text style={styles.title}>Every day is a new challenge.</Text>
         <Text style={styles.description}>
-          focus, energy, and productivity. Your path to mastery begins here.
+          Complete the tasks of your artifact and fill the calendar of success. Don't miss out - magic only works without interruption!
         </Text>
-        <TouchableOpacity style={styles.button} onPress={onStart}>
-          <Text style={styles.buttonText}>Start</Text>
+        <TouchableOpacity style={styles.button} onPress={onNext}>
+          <Text style={styles.buttonText}>Next</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     height: height * 0.5,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#2A1F2A',
+    backgroundColor: '#2A1F1F',
     borderRadius: 20,
   },
   placeholderText: {

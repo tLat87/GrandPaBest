@@ -15,7 +15,7 @@ interface OnboardingFlowProps {
 }
 
 export const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ onComplete, imagePaths }) => {
-  const [currentScreen, setCurrentScreen] = useState(1);
+  const [currentScreen, setCurrentScreen] = useState(2);
 
   const handleNext = () => {
     if (currentScreen < 3) {
@@ -31,9 +31,9 @@ export const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ onComplete, imag
 
   return (
     <View style={styles.container}>
-      {currentScreen === 1 && (
+      {/* {currentScreen === 1 && (
         <OnboardingScreen1 onNext={handleNext} imagePath={imagePaths?.screen1} />
-      )}
+      )} */}
       {currentScreen === 2 && (
         <OnboardingScreen2 onNext={handleNext} imagePath={imagePaths?.screen2} />
       )}

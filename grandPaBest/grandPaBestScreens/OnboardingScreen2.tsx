@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, Dimensions } from 'react-native';
-import { COLORS } from '../constants/colors';
+import { COLORS } from '../grandPaBestConstants/colors';
 
 const { width, height } = Dimensions.get('window');
 
@@ -17,7 +17,7 @@ export const OnboardingScreen2: React.FC<OnboardingScreen2Props> = ({ onNext, im
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}>
-          <Image source={require('../assets/img/onboard/2.png')} style={styles.image} resizeMode="contain" />
+          <Image source={require('../grandPaBestAssets/img/onboard/2.png')} style={styles.image} resizeMode="contain" />
  
       </View>
       

@@ -20,70 +20,6 @@ workflows:
               npm install
           - name: Install CocoaPods dependencies
             script: |
-              cd ios
-              pod deintegrate || true
-              pod cache clean --all || true
-              pod install --repo-update
-          - name: Set up provisioning profile settings on  Xcode project
-            script: |
-              cd ios
-              xcode-project use-profiles
-          - name: Increment build number
-            script: | 
-              #!/bin/sh
-              cd $CM_BUILD_DIR/ios
-              LATEST_BUILD_NUMBER=$(app-store-connect get-latest-app-store-build-number "$APP_STORE_APPLE_ID")
-              agvtool new-version -all $(($LATEST_BUILD_NUMBER + 1))
-          - name: Set Info.plist values
-            script: | 
-              PLIST=$CM_BUILD_DIR/ios/GrandPaBest/Info.plist
-              PLIST_BUDDY=/usr/libexec/PlistBuddy
-              $PLIST_BUDDY -c "Add :ITSAppUsesNonExemptEncryption bool false" $PLIST 2>/dev/null || $PLIST_BUDDY -c "Set :ITSAppUsesNonExemptEncryption bool false" $PLIST
-          - name: Clean build folder
-            script: |
-              cd $CM_BUILD_DIR/ios
-              rm -rf ~/Library/Developer/Xcode/DerivedData/*
-              xcodebuild clean -workspace "$XCODE_WORKSPACE" -scheme "$XCODE_SCHEME" -configuration Release
-          - name: Build ipa for distribution
-            script: | 
-              cd $CM_BUILD_DIR/ios
-              xcode-project build-ipa \
-                --workspace "$XCODE_WORKSPACE" \
-                --scheme "$XCODE_SCHEME"
-        artifacts:
-          - build/ios/ipa/*.ipa
-          - /tmp/xcodebuild_logs/*.log
-          - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
-          - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
-        publishing:
-          app_store_connect:
-            auth: integration
-            submit_to_app_store: true
-            copyright: GrandPaBest
-
-
-workflows:
-    sample-workflow:
-        name: GrandPaBest
-        max_build_duration: 120
-        instance_type: mac_mini_m1
-        integrations:
-          app_store_connect: GrandPaBestAPIKeyNew
-        environment:
-          ios_signing:
-            distribution_type: app_store
-            bundle_identifier: com.GrandPaBest.maina
-          vars:
-            APP_STORE_APPLE_ID: 6754824990
-            BUNDLE_ID: "com.GrandPaBest.maina"
-            XCODE_WORKSPACE: "GrandPaBest.xcworkspace"
-            XCODE_SCHEME: "GrandPaBest"
-        scripts:
-          - name: Install node modules
-            script: |
-              npm install
-          - name: Install CocoaPods dependencies
-            script: |
               cd ios && pod install
           - name: Set up provisioning profile settings on  Xcode project
             script: |
@@ -114,4 +50,4 @@ workflows:
           app_store_connect:
             auth: integration
             submit_to_app_store: true
-            copyright: Wolf Fit Plus 2024
+            copyright: GrandPaBest 2025

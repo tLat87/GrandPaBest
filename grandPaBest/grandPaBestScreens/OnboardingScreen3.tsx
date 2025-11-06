@@ -4,12 +4,12 @@ import { COLORS } from '../grandPaBestConstants/colors';
 
 const { width, height } = Dimensions.get('window');
 
-interface OnboardingScreen2Props {
-  onNext: () => void;
+interface OnboardingScreen3Props {
+  onStart: () => void;
   imagePath?: string | number;
 }
 
-export const OnboardingScreen2: React.FC<OnboardingScreen2Props> = ({ onNext, imagePath }) => {
+export const OnboardingScreen3: React.FC<OnboardingScreen3Props> = ({ onStart, imagePath }) => {
   const imageSource = imagePath 
     ? (typeof imagePath === 'number' ? imagePath : { uri: imagePath })
     : undefined;
@@ -17,17 +17,17 @@ export const OnboardingScreen2: React.FC<OnboardingScreen2Props> = ({ onNext, im
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}>
-          <Image source={require('../assets/img/onboard/2.png')} style={styles.image} resizeMode="contain" />
- 
+          <Image source={require('../grandPaBestAssets/img/onboard/3.png')} style={styles.image} resizeMode="contain" />
+  
       </View>
       
       <View style={styles.panel}>
-        <Text style={styles.title}>Every day is a new challenge.</Text>
+        <Text style={styles.title}>Each artifact stores your statistics:</Text>
         <Text style={styles.description}>
-          Complete the tasks of your artifact and fill the calendar of success. Don't miss out - magic only works without interruption!
+          focus, energy, and productivity. Your path to mastery begins here.
         </Text>
-        <TouchableOpacity style={styles.button} onPress={onNext}>
-          <Text style={styles.buttonText}>Next</Text>
+        <TouchableOpacity style={styles.button} onPress={onStart}>
+          <Text style={styles.buttonText}>Start</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     height: height * 0.5,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#2A1F1F',
+    backgroundColor: '#2A1F2A',
     borderRadius: 20,
   },
   placeholderText: {

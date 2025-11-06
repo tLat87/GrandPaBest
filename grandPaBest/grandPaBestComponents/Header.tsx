@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
-import { COLORS } from '../constants/colors';
+import { COLORS } from '../grandPaBestConstants/colors';
 
 export const Header = () => {
   // Укажите путь к логотипу PNG
-  const logoIcon = require('../assets/img/logo.png'); // Укажите путь к PNG
+  const logoIcon = require('../grandPaBestAssets/img/logo.png'); // Укажите путь к PNG
 
   return (
     <View style={styles.header}>

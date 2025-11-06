@@ -17,7 +17,7 @@ export const OnboardingScreen1: React.FC<OnboardingScreen1Props> = ({ onNext, im
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}>
-          <Image source={require('../assets/img/onboard/1.png')} style={styles.image} resizeMode="contain" />
+          <Image source={require('../grandPaBestAssets/img/onboard/1.png')} style={styles.image} resizeMode="contain" />
   
       </View>
       

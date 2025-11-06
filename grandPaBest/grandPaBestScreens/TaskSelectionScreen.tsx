@@ -39,7 +39,7 @@ export const TaskSelectionScreen = () => {
             <Text style={styles.taskTitle}>{task.title}</Text>
             <View style={styles.durationContainer}>
               <Image 
-                source={require('../assets/img/clock.png')} // Укажите путь к PNG иконке часов
+                source={require('../grandPaBestAssets/img/clock.png')} // Укажите путь к PNG иконке часов
                 style={styles.clockIcon} 
                 resizeMode="contain" 
               />

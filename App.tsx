@@ -3,15 +3,15 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar, StyleSheet, View, Text, Platform } from 'react-native';
-import { HomeScreen } from './src/grandPaBestScreens/HomeScreen';
-import { CalendarScreen } from './src/grandPaBestScreens/CalendarScreen';
-import { StatisticsScreen } from './src/grandPaBestScreens/StatisticsScreen';
-import { TaskSelectionScreen } from './src/grandPaBestScreens/TaskSelectionScreen';
-import { TimerScreen } from './src/grandPaBestScreens/TimerScreen';
-import { OnboardingFlow } from './src/grandPaBestScreens/OnboardingFlow';
-import { TabBarIcon } from './src/grandPaBestComponents/TabBarIcon';
-import { CustomTabBar } from './src/grandPaBestComponents/CustomTabBar';
-import { COLORS } from './src/grandPaBestConstants/colors';
+import { HomeScreen } from './grandPaBest/grandPaBestScreens/HomeScreen';
+import { CalendarScreen } from './grandPaBest/grandPaBestScreens/CalendarScreen';
+import { StatisticsScreen } from './grandPaBest/grandPaBestScreens/StatisticsScreen';
+import { TaskSelectionScreen } from './grandPaBest/grandPaBestScreens/TaskSelectionScreen';
+import { TimerScreen } from './grandPaBest/grandPaBestScreens/TimerScreen';
+import { OnboardingFlow } from './grandPaBest/grandPaBestScreens/OnboardingFlow';
+import { TabBarIcon } from './grandPaBest/grandPaBestComponents/TabBarIcon';
+import { CustomTabBar } from './grandPaBest/grandPaBestComponents/CustomTabBar';
+import { COLORS } from './grandPaBest/grandPaBestConstants/colors';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -19,12 +19,12 @@ const Stack = createNativeStackNavigator();
 function MainTabs() {
   // Пути к иконкам навигации - замените на реальные пути
   const iconPaths = {
-    homeActive: require('./src/assets/img/bottom/1.png'), // Укажите путь к PNG для активной иконки дома
-    homeInactive: require('./src/assets/img/bottom/1.png'), // Укажите путь к PNG для неактивной иконки дома
-    calendarActive: require('./src/assets/img/bottom/2.png'), // Укажите путь к PNG для активной иконки календаря
-    calendarInactive: require('./src/assets/img/bottom/2.png'), // Укажите путь к PNG для неактивной иконки календаря
-    statisticsActive: require('./src/assets/img/bottom/3.png'), // Укажите путь к PNG для активной иконки статистики
-    statisticsInactive: require('./src/assets/img/bottom/3.png'), // Укажите путь к PNG для неактивной иконки статистики
+    homeActive: require('./grandPaBest/grandPaBestAssets/img/bottom/1.png'), // Укажите путь к PNG для активной иконки дома
+    homeInactive: require('./grandPaBest/grandPaBestAssets/img/bottom/1.png'), // Укажите путь к PNG для неактивной иконки дома
+    calendarActive: require('./grandPaBest/grandPaBestAssets/img/bottom/2.png'), // Укажите путь к PNG для активной иконки календаря
+    calendarInactive: require('./grandPaBest/grandPaBestAssets/img/bottom/2.png'), // Укажите путь к PNG для неактивной иконки календаря
+    statisticsActive: require('./grandPaBest/grandPaBestAssets/img/bottom/3.png'), // Укажите путь к PNG для активной иконки статистики
+    statisticsInactive: require('./grandPaBest/grandPaBestAssets/img/bottom/3.png'), // Укажите путь к PNG для неактивной иконки статистики
   };
 
   return (

@@ -6,21 +6,21 @@ export const ARTIFACTS: Artifact[] = [
     type: 'focus',
     name: 'Grand Relic of Focus',
     description: 'An artifact of knowledge and self-discipline.',
-    icon: require('../assets/img/start.png'), // Укажите путь к PNG
+    icon: require('../grandPaBestAssets/img/start.png'), // Укажите путь к PNG
   },
   {
     id: 'energy',
     type: 'energy',
     name: 'Prism Star of Energy',
     description: 'A source of vital energy, brightness and inspiration.',
-    icon: require('../assets/img/roket.png'), // Укажите путь к PNG
+    icon: require('../grandPaBestAssets/img/roket.png'), // Укажите путь к PNG
   },
   {
     id: 'drive',
     type: 'drive',
     name: 'Candy Core of Drive',
     description: 'A symbol of action, excitement, and reward for effort.',
-    icon: require('../assets/img/book.png'), // Укажите путь к PNG
+    icon: require('../grandPaBestAssets/img/book.png'), // Укажите путь к PNG
   },
 ];
 
